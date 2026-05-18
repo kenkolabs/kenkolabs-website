@@ -1,0 +1,57 @@
+'use client';
+
+import { useRef, useMemo } from 'react';
+import { useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
+
+export default function ParticleField() {
+  const meshRef = useRef<THREE.Points>(null);
+
+  const { positions, colors } = useMemo(() => {
+    const count = 2500;
+    const positions = new Float32Array(count * 3);
+    const colors = new Float32Array(count * 3);
+
+    const palette = [
+      new THREE.Color('#7c3aed'),
+      new THREE.Color('#06b6d4'),
+      new THREE.Color('#10b981'),
+      new THREE.Color('#a78bfa'),
+    ];
+
+    for (let i = 0; i < count; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 30;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+
+      const c = palette[Math.floor(Math.random() * palette.length)];
+      colors[i * 3] = c.r;
+      colors[i * 3 + 1] = c.g;
+      colors[i * 3 + 2] = c.b;
+    }
+    return { positions, colors };
+  }, []);
+
+  useFrame((state) => {
+    if (!meshRef.current) return;
+    const t = state.clock.getElapsedTime();
+    meshRef.current.rotation.y = t * 0.025;
+    meshRef.current.rotation.x = Math.sin(t * 0.015) * 0.1;
+  });
+
+  return (
+    <points ref={meshRef}>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+        <bufferAttribute attach="attributes-color" args={[colors, 3]} />
+      </bufferGeometry>
+      <pointsMaterial
+        size={0.04}
+        vertexColors
+        transparent
+        opacity={0.7}
+        sizeAttenuation
+      />
+    </points>
+  );
+}
