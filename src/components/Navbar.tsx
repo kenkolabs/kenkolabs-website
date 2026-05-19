@@ -3,10 +3,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const SHOP_URL = 'https://kenkolabs-shop.fourthwall.com/';
+
 const links = [
   { label: 'Projects', href: '#projects' },
   { label: 'Stack', href: '#stack' },
   { label: 'About', href: '#about' },
+  { label: 'Shop', href: SHOP_URL, external: true },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -46,9 +49,17 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
+              {...(link.external
+                ? { target: '_blank', rel: 'noopener noreferrer' }
+                : {})}
               className="mono text-sm text-[#6b6b80] hover:text-white transition-colors duration-200 relative group"
             >
               {link.label}
+              {link.external && (
+                <span className="text-[10px] opacity-50 ml-0.5" aria-hidden>
+                  ↗
+                </span>
+              )}
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-violet-400 group-hover:w-full transition-all duration-300" />
             </a>
           ))}
@@ -84,10 +95,14 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
+                  {...(link.external
+                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                    : {})}
                   className="mono text-base text-[#6b6b80] hover:text-white transition-colors"
                   style={{ padding: '0.85rem 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}
                 >
                   {link.label}
+                  {link.external && <span className="opacity-50 ml-1">↗</span>}
                 </a>
               ))}
               <a

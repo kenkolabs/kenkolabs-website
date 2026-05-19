@@ -7,9 +7,19 @@ export default function Footer() {
         <span className="mono text-sm font-bold text-white">
           kenko<span className="text-violet-400">labs</span>
         </span>
-        <span className="mono text-xs text-[#6b6b80]">
-          © kenkolabs {new Date().getFullYear()}
-        </span>
+        <div className="flex items-center gap-6">
+          <a
+            href="https://kenkolabs-shop.fourthwall.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mono text-xs text-[#6b6b80] hover:text-violet-400 transition-colors"
+          >
+            shop ↗
+          </a>
+          <span className="mono text-xs text-[#6b6b80]">
+            © kenkolabs {new Date().getFullYear()}
+          </span>
+        </div>
         <a
           href="#"
           className="mono text-xs text-[#6b6b80] hover:text-violet-400 transition-colors"
