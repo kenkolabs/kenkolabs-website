@@ -121,12 +121,12 @@ export default function Projects() {
               </div>
               <span className="mono" style={{
                 fontSize: '0.7rem', padding: '0.3rem 0.85rem', borderRadius: '999px',
-                border: '1px solid rgba(251,191,36,0.25)',
-                background: 'rgba(251,191,36,0.08)',
-                color: '#fbbf24', display: 'flex', alignItems: 'center', gap: '0.4rem', whiteSpace: 'nowrap',
+                border: '1px solid rgba(52,211,153,0.3)',
+                background: 'rgba(52,211,153,0.08)',
+                color: '#34d399', display: 'flex', alignItems: 'center', gap: '0.4rem', whiteSpace: 'nowrap',
               }}>
-                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#fbbf24', display: 'inline-block', animation: 'pulse 2s infinite' }} />
-                under app store review
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#34d399', display: 'inline-block', animation: 'pulse 2s infinite' }} />
+                live on App Store
               </span>
             </div>
 
@@ -186,25 +186,49 @@ export default function Projects() {
             </div>
 
             {/* CTA */}
-            <a
-              href="https://www.kommon.life"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mono"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                fontSize: '0.875rem', fontWeight: 600,
-                color: 'white', textDecoration: 'none',
-                background: 'linear-gradient(135deg, rgba(124,58,237,0.7), rgba(6,182,212,0.5))',
-                border: '1px solid rgba(124,58,237,0.4)',
-                padding: '0.65rem 1.4rem', borderRadius: '10px',
-                transition: 'opacity 0.2s, transform 0.2s',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
-              onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)'; }}
-            >
-              visit kommon.life ↗
-            </a>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+              <a
+                href="https://apps.apple.com/us/app/kommon/id6767947675"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mono"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                  fontSize: '0.875rem', fontWeight: 600,
+                  color: 'white', textDecoration: 'none',
+                  background: 'linear-gradient(135deg, rgba(124,58,237,0.8), rgba(6,182,212,0.6))',
+                  border: '1px solid rgba(124,58,237,0.5)',
+                  padding: '0.65rem 1.4rem', borderRadius: '10px',
+                  transition: 'opacity 0.2s, transform 0.2s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)'; }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                download on App Store
+              </a>
+              <a
+                href="https://www.kommon.life"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mono"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                  fontSize: '0.875rem', fontWeight: 600,
+                  color: '#a78bfa', textDecoration: 'none',
+                  border: '1px solid rgba(124,58,237,0.25)',
+                  background: 'rgba(124,58,237,0.06)',
+                  padding: '0.65rem 1.4rem', borderRadius: '10px',
+                  transition: 'opacity 0.2s, transform 0.2s, background 0.2s',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.background = 'rgba(124,58,237,0.12)'; }}
+                onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.background = 'rgba(124,58,237,0.06)'; }}
+              >
+                visit kommon.life ↗
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>
